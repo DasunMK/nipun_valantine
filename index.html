@@ -214,46 +214,46 @@
                 <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Bears Hugging">
             </div>
             <h1>YAYYY! ❤️</h1>
-            <p class="subtitle">I knew you'd say yes! Now pick our date:</p>
+            <p class="subtitle">I knew you'd say yes Dew😉! Now pick our date😙💕:</p>
 
             <div class="planner-section">
-                <span class="planner-label">What are we eating? 🍔</span>
+                <span class="planner-label">What do you want?😗 </span>
                 <div class="options-grid" id="foodOptions">
-                    <div class="option-card" onclick="selectOption('food', 'Sushi', this)">
-                        <span class="option-icon">🍣</span>
-                        <span class="option-text">Sushi</span>
+                    <div class="option-card" onclick="selectOption('food', 'Flowers', this)">
+                        <span class="option-icon">💐</span>
+                        <span class="option-text">Flowers</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('food', 'Pizza', this)">
-                        <span class="option-icon">🍕</span>
-                        <span class="option-text">Pizza</span>
+                    <div class="option-card" onclick="selectOption('food', 'Chocolate', this)">
+                        <span class="option-icon">🍫</span>
+                        <span class="option-text">Chocolate</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('food', 'Burgers', this)">
-                        <span class="option-icon">🍔</span>
-                        <span class="option-text">Burgers</span>
+                    <div class="option-card" onclick="selectOption('food', 'Teddy', this)">
+                        <span class="option-icon">🧸</span>
+                        <span class="option-text">Teddy</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('food', 'Dessert', this)">
-                        <span class="option-icon">🍦</span>
-                        <span class="option-text">Dessert</span>
+                    <div class="option-card" onclick="selectOption('food', 'Book', this)">
+                        <span class="option-icon">📖</span>
+                        <span class="option-text">Book</span>
                     </div>
                 </div>
 
-                <span class="planner-label">What are we doing? 🎬</span>
+              
                 <div class="options-grid" id="activityOptions">
-                    <div class="option-card" onclick="selectOption('activity', 'Movie', this)">
-                        <span class="option-icon">🍿</span>
-                        <span class="option-text">Movies</span>
+                    <div class="option-card" onclick="selectOption('activity', 'Jeans', this)">
+                        <span class="option-icon">👖</span>
+                        <span class="option-text">Jeans</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('activity', 'Drive', this)">
-                        <span class="option-icon">🚗</span>
-                        <span class="option-text">Long Drive</span>
+                    <div class="option-card" onclick="selectOption('activity', 'Top', this)">
+                        <span class="option-icon">👚</span>
+                        <span class="option-text">Top</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('activity', 'Picnic', this)">
-                        <span class="option-icon">🧺</span>
-                        <span class="option-text">Picnic</span>
+                    <div class="option-card" onclick="selectOption('activity', 'Shoes', this)">
+                        <span class="option-icon">👟</span>
+                        <span class="option-text">Shoes</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('activity', 'Chill', this)">
-                        <span class="option-icon">🏠</span>
-                        <span class="option-text">Chill @ Home</span>
+                    <div class="option-card" onclick="selectOption('activity', 'Slippers', this)">
+                        <span class="option-icon">🥿</span>
+                        <span class="option-text">Slippers</span>
                     </div>
                 </div>
 
@@ -267,7 +267,7 @@
     <script>
         /* --- CONFIGURATION --- */
         // CHANGE THIS NUMBER TO YOUR WHATSAPP NUMBER (with country code, no +)
-        const yourPhoneNumber = "94750736837"; 
+        const yourPhoneNumber = "94761695577"; 
 
         const phrases = ["No", "Are you sure?", "Really sure?", "Pookie please? 🥺", "Don't do this!", "I'm gonna cry...", "You're breaking my heart!", "Just say yes! ❤️"];
         let noCount = 0;
@@ -331,7 +331,7 @@
         }
 
         function sendWhatsapp() {
-            const message = `Yay! I said YES! ❤️ \nFor our date, I want to eat ${selectedFood} and go for ${selectedActivity}! See you soon! 😘`;
+            const message = `Yay! I said YES! 😍❤️ \nFor our date, I want ${selectedFood} and ${selectedActivity}!. I am comming for you! 😘💕💕💕💕💕`;
             const url = `https://wa.me/${yourPhoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
@@ -353,5 +353,4 @@
 </body>
 
 </html>
-
 
