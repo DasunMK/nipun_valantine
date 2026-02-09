@@ -61,40 +61,41 @@
         .container {
             position: relative;
             z-index: 10;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(255, 255, 255, 0.9);
             border-radius: 25px;
-            padding: 40px;
+            padding: 30px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 35px rgba(255, 51, 102, 0.15);
             max-width: 90%;
-            width: 550px;
+            width: 500px;
             margin: 20px;
             transition: all 0.5s ease;
         }
 
         .gif-container img {
             width: 100%;
-            max-width: 220px;
+            max-width: 200px;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             box-shadow: 0 8px 20px rgba(255, 51, 102, 0.15);
         }
 
         h1 {
             color: #d62851;
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 10px;
             line-height: 1.2;
+            font-weight: 800;
         }
 
         .subtitle {
             font-family: var(--font-hand);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         /* --- BUTTONS --- */
@@ -102,16 +103,16 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
             min-height: 80px;
         }
 
         .btn {
-            padding: 14px 32px;
+            padding: 12px 30px;
             border: none;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -124,7 +125,7 @@
         #noBtn { background-color: white; color: #555; position: relative; }
         #noBtn:hover { background-color: #f0f0f0; }
 
-        /* --- DATE PLANNER SECTION --- */
+        /* --- GIFT SELECTION SECTION --- */
         .hidden { display: none; }
         
         .planner-section {
@@ -133,53 +134,81 @@
         }
 
         .planner-label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #444;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #d62851;
+            margin: 15px 0 10px 0;
+            display: block;
+            text-align: center;
+            font-family: var(--font-hand);
+        }
+
+        .selection-hint {
+            font-size: 0.9rem;
+            color: #888;
+            text-align: center;
+            margin-bottom: 15px;
             display: block;
         }
 
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 10px;
-            margin-bottom: 25px;
+            grid-template-columns: repeat(2, 1fr); /* 2 Columns */
+            gap: 12px;
+            margin-bottom: 15px;
+            max-height: 300px;
+            overflow-y: auto; /* Scroll if too many items on small phones */
+            padding: 5px;
         }
 
         .option-card {
-            background: rgba(255,255,255,0.6);
-            border: 2px solid transparent;
+            background: white;
+            border: 2px solid #eee;
             border-radius: 12px;
-            padding: 15px 5px;
+            padding: 12px;
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
-            flex-direction: column;
+            flex-direction: row; /* Icon left, text right */
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .option-card:hover { transform: translateY(-3px); background: white; }
+        .option-card:hover { transform: translateY(-2px); border-color: pink; }
         
+        /* Highlight selected item */
         .option-card.selected {
-            background: white;
+            background: #fff0f3;
             border-color: var(--color-primary);
-            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.2);
+            box-shadow: 0 4px 10px rgba(255, 51, 102, 0.2);
+            position: relative;
+        }
+        
+        /* Add a checkmark when selected */
+        .option-card.selected::after {
+            content: "✓";
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 0.8rem;
         }
 
-        .option-icon { font-size: 2rem; }
-        .option-text { font-size: 0.9rem; font-weight: 500; }
+        .option-icon { font-size: 1.5rem; }
+        .option-text { font-size: 0.95rem; font-weight: 600; color: #444; }
 
         #whatsappBtn {
             background-color: #25D366;
             color: white;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
+            font-size: 1.1rem;
         }
         
         #whatsappBtn:hover { background-color: #128C7E; transform: scale(1.02); }
@@ -189,18 +218,18 @@
 <body>
 
     <audio id="loveSong" loop>
-    <source src="song.mp3" type="audio/mpeg"> 
-    Your browser does not support the audio element.
-</audio>
+        <source src="song.mp3" type="audio/mpeg"> 
+    </audio>
 
     <div class="bg-hearts" id="bgHearts"></div>
 
     <div class="container">
+        
         <div id="mainContent">
             <div class="gif-container">
-                <img src="cute-bear.gif" alt="Cute Bear Asking">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpueG56Z3R5bmZ6Z3R5bmZ6Z3R5bmZ6Z3R5bmZ6JnB0PWEmZXA9djFfaW50ZXJuYWxfZ2lmX2J5X2lkJmN0PWc/c77v7VnKx3bV6/giphy.gif" alt="Cute Bear Asking">
             </div>
-            <h1>My Love Will you be my Valentine?</h1>
+            <h1>My Love, will you be my Valentine?</h1>
             <p class="subtitle">I promise to buy you snacks! 🍫</p>
             
             <div class="buttons">
@@ -214,51 +243,51 @@
                 <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Bears Hugging">
             </div>
             <h1>YAYYY! ❤️</h1>
-            <p class="subtitle">I knew you'd say yes Dew😉! Now pick your gifts😙💕:</p>
+            <p class="subtitle">I knew you'd say yes, Dew! 😉</p>
 
             <div class="planner-section">
-                <span class="planner-label">What do you want?😗 </span>
-                <div class="options-grid" id="foodOptions">
-                    <div class="option-card" onclick="selectOption('food', 'Flowers', this)">
+                
+                <span class="planner-label">What do you want?😗</span>
+                <span class="selection-hint">(Select any 2 items)</span>
+
+                <div class="options-grid" id="allOptions">
+                    <div class="option-card" onclick="toggleSelection('Flowers 💐', this)">
                         <span class="option-icon">💐</span>
                         <span class="option-text">Flowers</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('food', 'Chocolate', this)">
+                    <div class="option-card" onclick="toggleSelection('Chocolates 🍫', this)">
                         <span class="option-icon">🍫</span>
                         <span class="option-text">Chocolate</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('food', 'Teddy', this)">
+                    <div class="option-card" onclick="toggleSelection('Big Teddy 🧸', this)">
                         <span class="option-icon">🧸</span>
                         <span class="option-text">Teddy</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('food', 'Book', this)">
+                    <div class="option-card" onclick="toggleSelection('A Good Book 📖', this)">
                         <span class="option-icon">📖</span>
                         <span class="option-text">Book</span>
                     </div>
-                </div>
 
-              
-                <div class="options-grid" id="activityOptions">
-                    <div class="option-card" onclick="selectOption('activity', 'Jeans', this)">
+                    <div class="option-card" onclick="toggleSelection('Cute Jeans 👖', this)">
                         <span class="option-icon">👖</span>
                         <span class="option-text">Jeans</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('activity', 'Top', this)">
+                    <div class="option-card" onclick="toggleSelection('Pretty Top 👚', this)">
                         <span class="option-icon">👚</span>
                         <span class="option-text">Top</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('activity', 'Shoes', this)">
+                    <div class="option-card" onclick="toggleSelection('Nice Shoes 👟', this)">
                         <span class="option-icon">👟</span>
                         <span class="option-text">Shoes</span>
                     </div>
-                    <div class="option-card" onclick="selectOption('activity', 'Slippers', this)">
+                    <div class="option-card" onclick="toggleSelection('Heels/Slippers 🥿', this)">
                         <span class="option-icon">🥿</span>
                         <span class="option-text">Slippers</span>
                     </div>
                 </div>
 
                 <button class="btn" id="whatsappBtn" onclick="sendWhatsapp()">
-                    Send to Me 💌
+                    Send My Wishes 💌
                 </button>
             </div>
         </div>
@@ -266,15 +295,14 @@
 
     <script>
         /* --- CONFIGURATION --- */
-        // CHANGE THIS NUMBER TO YOUR WHATSAPP NUMBER (with country code, no +)
-        const yourPhoneNumber = "94761695577"; 
+        const yourPhoneNumber = "94750736837"; 
 
-        const phrases = ["No", "Are you sure?", "Really sure?", "Pookie please? 🥺", "Don't do this!", "I'm gonna cry...", "You're breaking my heart!", "Just say yes! ❤️"];
+        const phrases = ["No", "Are you sure?", "Really sure?", "Pookie please? 🥺", "Don't do this!", "I'm gonna cry...", "Heartbreaker! 💔", "Just say YES! ❤️"];
         let noCount = 0;
-        let yesFontSize = 1.1;
+        let yesFontSize = 1;
         
-        let selectedFood = "Anything";
-        let selectedActivity = "Anything";
+        // Array to store selected items
+        let selectedItems = [];
 
         /* --- HEARTS BACKGROUND --- */
         function createHearts() {
@@ -301,42 +329,59 @@
             noBtn.innerText = phrases[Math.min(noCount, phrases.length - 1)];
             yesFontSize += 0.4;
             yesBtn.style.fontSize = `${yesFontSize}rem`;
-            yesBtn.style.padding = `${14 + noCount * 2}px ${32 + noCount * 4}px`;
+            yesBtn.style.padding = `${12 + noCount * 5}px ${30 + noCount * 10}px`;
         }
 
         function acceptLove() {
             document.getElementById("mainContent").classList.add("hidden");
             document.getElementById("successContent").classList.remove("hidden");
-            
-            // Try to play audio (interaction required)
             const audio = document.getElementById("loveSong");
             audio.volume = 0.5;
             audio.play().catch(e => console.log("Audio play failed (browser blocked):", e));
-
             launchConfetti();
         }
 
         /* --- SELECTION LOGIC --- */
-        function selectOption(category, value, element) {
-            // Update variable
-            if (category === 'food') selectedFood = value;
-            if (category === 'activity') selectedActivity = value;
+        function toggleSelection(value, element) {
+            // Check if item is already selected
+            const index = selectedItems.indexOf(value);
 
-            // Update UI (Remove .selected from siblings, add to clicked)
-            const siblings = element.parentElement.children;
-            for (let sibling of siblings) {
-                sibling.classList.remove('selected');
+            if (index > -1) {
+                // If found, remove it (deselect)
+                selectedItems.splice(index, 1);
+                element.classList.remove('selected');
+            } else {
+                // If not found, check if we have reached the limit of 2
+                if (selectedItems.length < 2) {
+                    selectedItems.push(value);
+                    element.classList.add('selected');
+                } else {
+                    // Alert if trying to select a 3rd item
+                    alert("You can only choose 2 items! Unselect one first. 😗");
+                }
             }
-            element.classList.add('selected');
         }
 
         function sendWhatsapp() {
-            const message = `Yay! I said YES! 😍❤️ \n I want ${selectedFood} and ${selectedActivity}!. I am comming for you! 😘💕💕💕💕💕`;
-            const url = `https://wa.me/${yourPhoneNumber}?text=${encodeURIComponent(message)}`;
+            if (selectedItems.length === 0) {
+                alert("Please pick at least one gift! 🥺");
+                return;
+            }
+
+            let message = "Yay! I said YES! 😍❤️%0A%0AFor my Valentine gifts, I want:%0A";
+            
+            // Add selected items to message
+            selectedItems.forEach(item => {
+                message += `• ${item}%0A`;
+            });
+            
+            message += "%0AI am coming for you! 😘💕";
+            
+            const url = `https://wa.me/${yourPhoneNumber}?text=${message}`;
             window.open(url, '_blank');
         }
 
-        /* --- CONFETTI --- */
+        /* --- CONFETTI ANIMATION --- */
         function launchConfetti() {
             var duration = 3 * 1000;
             var animationEnd = Date.now() + duration;
@@ -351,7 +396,4 @@
         }
     </script>
 </body>
-
 </html>
-
-
